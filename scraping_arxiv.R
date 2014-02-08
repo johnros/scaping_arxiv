@@ -11,8 +11,7 @@ sets
 
 
 #### Scraping Statistics set ####
-# spec <- unlist(sets[sets[, "setName"]  == "Statistics", "setSpec"])
-
+spec <- unlist(sets[sets[, "setName"]  == "Statistics", "setSpec"])
 ## Careful: long run.
 stats <- oaih_list_records(baseurl, set = spec)
 m <- stats[, "metadata"]
