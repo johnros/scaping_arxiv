@@ -12,11 +12,12 @@ sets
 
 #### Scraping Statistics set ####
 # spec <- unlist(sets[sets[, "setName"]  == "Statistics", "setSpec"])
-# # Careful: long run.
-# stats <- oaih_list_records(baseurl, set = spec)
-# m <- stats[, "metadata"]
-# m <- oaih_transform(m[sapply(m, length) > 0L])
-# save(stats,m, file='stats.RData')
+
+## Careful: long run.
+stats <- oaih_list_records(baseurl, set = spec)
+m <- stats[, "metadata"]
+m <- oaih_transform(m[sapply(m, length) > 0L])
+#save(stats,m, file='stats.RData')
 
 load(file='stats.RData')
 colnames(stats)
@@ -24,7 +25,7 @@ colnames(m)
 
 n.authors<- sapply(m[,'creator'], length)
 n.submission<- length(unlist(m[,'date']))
-n.papers<- nrow(stats)
+n.papers<- nrow(m)
 m.flat<- matrix(NA, nrow=n.submission, ncol=2, dimnames=list(NULL,c("id","date")))
 counter<- 1
 for(i in 1:n.papers ){
