@@ -1,4 +1,4 @@
-scaping_arxiv
+Scraping ArXiv
 =============
 
 Exploratory statistics of ArXiV. 
